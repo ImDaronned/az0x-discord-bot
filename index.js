@@ -44,7 +44,7 @@ Client.on("messageCreate", message => {
                     },
                     {
                         label: "🎖️ | Postuler",
-                        description: "Vous voulez rejoindre une faction ? Tentez votre chance !",
+                        description: "Vous voulez rejoindre notre faction ? Tentez votre chance !",
                         value: "join"
                     },
                     {
