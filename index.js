@@ -38,6 +38,11 @@ Client.on("messageCreate", message => {
                 .addOptions([
                     //Chaque option ici
                     {
+                        label: "Pour rouvrir un ticket, cliquez ici",
+                        description: "Une fois cette option  sélectionnée, resélectionnez l'option choise",
+                        value: "reset"
+                    },
+                    {
                         label: "❓ | Question",
                         description: "Une question ? N'hésitez pas !",
                         value: "qst"
@@ -80,6 +85,10 @@ Client.on("interactionCreate", interaction => {
         if(interaction.customId === "select") {
             console.log(interaction.values);
 
+            if(interaction.values == "reset"){
+                interaction.reply({content: "Veuillez resélectionnez une option pour ouvrir un ticket.", ephemeral: true});
+            }
+
             if(interaction.values == "qst"){
                 interaction.reply({content: "Vous avez choisi l'option ❓ | Question", ephemeral: true});
 
@@ -99,6 +108,11 @@ Client.on("interactionCreate", interaction => {
                             id: interaction.user.id,
                             allow: [Discord.Permissions.FLAGS.VIEW_CHANNEL]
                         },
+                        {
+                            id : interaction.guild.roles.cache.get("978963146364563456"),
+                            allow: [Discord.Permissions.FLAGS.VIEW_CHANNEL]
+                        }
+                        
                     ]
                 }).then(channel => {
                     var button = new Discord.MessageActionRow()
@@ -117,6 +131,7 @@ Client.on("interactionCreate", interaction => {
             if(interaction.values == "join"){
 
                 interaction.reply({content: "Les recrutements sont temporairement fermés (RC OFF)", ephemeral: true});
+
 
                 /*
                 interaction.reply({content: "Vous avez choisi l'option 🎖️ | Postuler", ephemeral: true});
@@ -137,6 +152,10 @@ Client.on("interactionCreate", interaction => {
                             id: interaction.user.id,
                             allow: [Discord.Permissions.FLAGS.VIEW_CHANNEL]
                         },
+                        {
+                            id : interaction.guild.roles.cache.get("978963146364563456"),
+                            allow: [Discord.Permissions.FLAGS.VIEW_CHANNEL]
+                        }
                     ]
                 }).then(channel => {
                     var button = new Discord.MessageActionRow()
@@ -173,6 +192,14 @@ Client.on("interactionCreate", interaction => {
                             id: interaction.user.id,
                             allow: [Discord.Permissions.FLAGS.VIEW_CHANNEL]
                         },
+                        {
+                            id : interaction.guild.roles.cache.get("978963146364563456"),
+                            allow: [Discord.Permissions.FLAGS.VIEW_CHANNEL]
+                        },
+                        {
+                            id : interaction.guild.roles.cache.get("979743472426827818"),
+                            allow: [Discord.Permissions.FLAGS.VIEW_CHANNEL]
+                        }
                     ]
                 }).then(channel => {
                     var button = new Discord.MessageActionRow()
@@ -184,6 +211,7 @@ Client.on("interactionCreate", interaction => {
 
                     //Message du bot à l'open du ticket
                     channel.send({content: "<@" + interaction.user.id + "> a ouvert un ticket de la catégorie 💵 | Shop", components: [button]});
+
 
                 });
             }
@@ -207,6 +235,10 @@ Client.on("interactionCreate", interaction => {
                             id: interaction.user.id,
                             allow: [Discord.Permissions.FLAGS.VIEW_CHANNEL]
                         },
+                        {
+                            id : interaction.guild.roles.cache.get("978963146364563456"),
+                            allow: [Discord.Permissions.FLAGS.VIEW_CHANNEL]
+                        }
                     ]
                 }).then(channel => {
                     var button = new Discord.MessageActionRow()
@@ -218,6 +250,7 @@ Client.on("interactionCreate", interaction => {
 
                     //Message du bot à l'open du ticket
                     channel.send({content: "<@" + interaction.user.id + "> a ouvert un ticket de la catégorie 🪓 | Mercenaire", components: [button]});
+
 
                 });
             }
@@ -241,6 +274,14 @@ Client.on("interactionCreate", interaction => {
                             id: interaction.user.id,
                             allow: [Discord.Permissions.FLAGS.VIEW_CHANNEL]
                         },
+                        {
+                            id : interaction.guild.roles.cache.get("978963146364563456"),
+                            allow: [Discord.Permissions.FLAGS.VIEW_CHANNEL]
+                        },
+                        {
+                            id : interaction.guild.roles.cache.get("980062314512412772"),
+                            allow: [Discord.Permissions.FLAGS.VIEW_CHANNEL]
+                        }
                     ]
                 }).then(channel => {
                     var button = new Discord.MessageActionRow()
@@ -252,10 +293,12 @@ Client.on("interactionCreate", interaction => {
 
                     //Message du bot à l'open du ticket
                     channel.send({content: "<@" + interaction.user.id + "> a ouvert un ticket de la catégorie 📽️ | Montage", components: [button]});
+            
 
                 });
             }
-        }   
+        };
+
     }
 
     else if(interaction.customId === "close-ticket"){
