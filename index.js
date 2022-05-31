@@ -113,7 +113,7 @@ Client.on("interactionCreate", interaction => {
                             allow: [Discord.Permissions.FLAGS.VIEW_CHANNEL]
                         },
                         {
-                            id : interaction.guild.roles.cache.get("981172201619324968"),
+                            id : interaction.guild.roles.cache.get("979720290709938196"),
                             allow: [Discord.Permissions.FLAGS.VIEW_CHANNEL]
                         }
                         
