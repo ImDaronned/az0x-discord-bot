@@ -134,10 +134,7 @@ Client.on("interactionCreate", interaction => {
 
             if(interaction.values == "join"){
 
-                interaction.reply({content: "Les recrutements sont temporairement fermés (RC OFF)", ephemeral: true});
 
-
-                /*
                 interaction.reply({content: "Vous avez choisi l'option 🎖️ | Postuler", ephemeral: true});
 
                 nbTicket++;
@@ -170,11 +167,9 @@ Client.on("interactionCreate", interaction => {
                         );
 
                     //Message du bot à l'open du ticket
-                    channel.send({content: "<@" + interaction.user.id + "> a ouvert un ticket de la catégorie 🎖️ | Postuler/n Format :/n/n - Première partie : Faire une description IRL/IG de vous, vos passions/activités dans la vie, vos projets et votre statut dans la vie./n - Deuxième partie : Vos intérêts sur/pour le serveur, votre richesse/capacité, votre passé, vos connaissances et vos horaires./n - Troisième partie : Votre approche vers notre faction, l'intérêt à nous rejoindre et les raisons de vous recruter./n - Conclusion : Informations supplémentaires et message de fin.", components: [button]});
+                    channel.send({content: "<@" + interaction.user.id + "> a ouvert un ticket de la catégorie 🎖️ | Postuler\r\n **Veuillez respecter ce format : **\r\n \r\n• Première partie : Faire une description IRL/IG de vous, vos passions/activités dans la vie, vos projets et votre statut dans la vie.\r\n \r\n• Deuxième partie : Vos intérêts sur/pour le serveur, votre richesse/capacité, votre passé, vos connaissances et vos horaires.\r\n \r\n• Troisième partie : Votre approche vers notre faction, l'intérêt à nous rejoindre et les raisons de vous recruter.\r\n \r\n• Conclusion : Informations supplémentaires et message de fin.", components: [button]});
 
                 });
-                */
-
             }
 
             if(interaction.values == "shop"){
